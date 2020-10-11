@@ -1,0 +1,96 @@
+body{
+  background-image: url("back.jpg");
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  height: 100vh;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.card {
+  background-color: rgba(213, 233, 199, 0.8);
+  border: 3px solid rgba(112, 102, 102, 0.8);
+  height: 10vh;
+  width: 10vh;
+  padding: 20px;
+  margin: 2vh;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 1em;
+}
+.height{
+  height: 10vh;
+}
+.card img{
+  position: relative;
+  height: 16vh;
+  opacity: 0;
+  bottom: 100px;
+}
+.card:hover{
+  height: 2vh;
+  border-radius: 50%;
+  border: 3px solid rgba(66, 73, 4, 0.8);
+  top: -20px;
+  background-color: yellow;
+  transition: 0.3s;
+}
+.open{
+  height: 2vh;
+  border-radius: 50%;
+  border: 3px solid rgba(66, 73, 4, 0.8);
+  top: -20px;
+  background-color: yellow;
+}
+/* .card:hover img
+{
+  opacity: 1;
+  position: relative;
+  height: 100px;
+  bottom: 15vh;
+  transition: 0.5s;
+} */
+.reveal{
+  opacity: 1;
+  position: relative;
+  height: 100px;
+  bottom: 15vh;
+  transition: 0.5s;
+}
+#newGame{
+  height: 12vh;
+  width: 12vh;
+  border-radius: 50%;
+  font-size: 2vh;
+  font-weight: bold;
+  color: rgb(31, 31, 165);
+  background-color: yellow;
+  border-style: groove;
+  border-color: aqua;
+  border-width: 1vh;
+}
+#tbl2{
+  text-align: center;
+}
+#p1points, #p2points{
+  background-color: yellow;
+  border-radius: 1vh;
+  text-align: center;
+}
+
+
+#aliens {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  animation-name: example;
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes example {
+  0%   {left:0px; top:0px;}
+  25%  {left:200px; top:0px;}
+  50%  {left:200px; top:200px;}
+  75%  {left:-1200px; top:200px;}
+  100% {left:0px; top:0px;}
+}
