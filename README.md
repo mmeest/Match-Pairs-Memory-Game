@@ -12,4 +12,6 @@ Classical memory game written in HTML, JS, CSS
 * Timer
 * Moves counter
 
+# Good luck !
+
 ![footer](https://capsule-render.vercel.app/api?type=slice&color=auto&height=130&section=footer)
