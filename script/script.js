@@ -19,6 +19,8 @@ var gameOn = 1
 var playerTurn = 1
 var player1Points = 0
 var player2Points = 0
+var moves = 0
+var rightMoves = 0
 
 function randomizeArray(){
     for(i = images.length; i > 0; i -= 1){
@@ -33,10 +35,28 @@ function randomizeArray(){
 function divideImages(item, index){
     document.getElementById("img" + index.toString()).src = item + ".png"
 }
-        
+ 
+// HTML body onload function
 function divide(item, index){
     randomizeArray(images, randomArray)
     randomArray.forEach(divideImages)
+    myVar = setInterval(myTimer ,1000)
+}
+
+var s = 0
+var m = 0
+// function to display timer 
+function myTimer(){
+    s += 1
+    if (s > 59){
+        m += 1
+        s = 0
+    }
+    if(s < 10){
+        document.getElementById("time").innerHTML = "Time: " + m + ":0" + s + " min"
+    }else{
+        document.getElementById("time").innerHTML = "Time: " + m + ":" + s + " min"
+    }
 }
 
 function myFunction(myID){
@@ -49,12 +69,9 @@ function myFunction(myID){
         secondSel = myID.toString()    
         var x = eID(firstSel).src
         var y = eID(secondSel).src
-        console.log(x)
-        console.log(y)
         if(x == y){
             images.splice(images.indexOf(randomImg), 1)
             characters.splice(characters.indexOf(x))
-            console.log("match")
             document.getElementById("card" + firstSel).style.height = "2vh"
             document.getElementById("card" + firstSel).style.backgroundColor = "yellow"
             document.getElementById("card" + firstSel).style.borderRadius = "50%"
@@ -74,6 +91,13 @@ function myFunction(myID){
                 document.getElementById("p2points").innerHTML = player2Points
                 playerTurn = 1
             }
+            rightMoves += 1
+            if(rightMoves == 14){
+                document.getElementById("AB").style.visibility = "hidden"
+                clearTimeout(myVar)
+            }
+            moves += 1
+            document.getElementById("moves").innerHTML = "Moves: " + moves
         } else {
             gameOn = 0
             setTimeout(clear, 1000, firstSel, secondSel);
@@ -84,6 +108,8 @@ function myFunction(myID){
                 playerTurn = 1
                 document.getElementById("AB").innerHTML = "A"
             }
+            moves += 1
+            document.getElementById("moves").innerHTML = "Moves: " + moves
         }
         selNo = 0
     }
