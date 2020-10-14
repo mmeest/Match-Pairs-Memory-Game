@@ -41,6 +41,7 @@ function divide(item, index){
     randomizeArray(images, randomArray)
     randomArray.forEach(divideImages)
     myVar = setInterval(myTimer ,1000)
+    gameSolver()                            /////////// GAME SOLVER
 }
 
 var s = 0
@@ -75,10 +76,12 @@ function myFunction(myID){
             document.getElementById("card" + firstSel).style.height = "2vh"
             document.getElementById("card" + firstSel).style.backgroundColor = "yellow"
             document.getElementById("card" + firstSel).style.borderRadius = "50%"
+            document.getElementById("img" + firstSel).style.height = "13vh"
 
             document.getElementById("card" + secondSel).style.height = "2vh"
             document.getElementById("card" + secondSel).style.backgroundColor = "yellow"
             document.getElementById("card" + secondSel).style.borderRadius = "50%"
+            document.getElementById("img" + secondSel).style.height = "13vh"
 
             if(playerTurn == 1){
                 player1Points += 1
@@ -92,9 +95,33 @@ function myFunction(myID){
                 playerTurn = 1
             }
             rightMoves += 1
-            if(rightMoves == 14){
+            if(rightMoves == 14){       // GAME OVER
+                for(i = 0; i < 28; i++){
+                    if(i % 2 == 0){     // to rotate characters at the end
+                        for(k = 0; k < 28; k++){
+                            if(k % 2 == 0){     // to rotate characters at the end
+                                cID(k).classList.add("AA")
+                            }else{
+                                cID(k).classList.add("AB")
+                            }
+                        }
+                    }else{
+                        for(j = 0; j < 28; j++){
+                            if(j % 2 == 0){     // to rotate characters at the end
+                                cID(j).classList.add("BB")
+                            }else{
+                                cID(j).classList.add("BA")
+                            }
+                        }
+                    }
+                }
+                document.getElementById("row0").classList.add("AB")
+                document.getElementById("row1").classList.add("AA")
+                document.getElementById("row2").classList.add("BA")
+                document.getElementById("row3").classList.add("BB")
+
                 document.getElementById("AB").style.visibility = "hidden"
-                clearTimeout(myVar)
+                clearTimeout(myVar)     
             }
             moves += 1
             document.getElementById("moves").innerHTML = "Moves: " + moves
@@ -121,10 +148,56 @@ function clear(firstSel, secondSel){
     gameOn = 1
 }
 
-function eID(eid){
-    return document.getElementById("img" + eid.toString())
-}
+eID = eid => document.getElementById("img" + eid.toString())
 
-function cID(eid){
+/* function eID(eid){
+    return document.getElementById("img" + eid.toString())
+} */
+
+cID = eid => document.getElementById("card" + eid.toString())
+
+/* function cID(eid){
     return document.getElementById("card" + eid.toString())
+} */
+
+
+//////////////////////// GAME /// SOLVER ////////////////////
+
+var gst = [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13",              
+            "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27" ]   
+var test = []
+let firstRandom = ""
+let secondRandom = ""
+function gameSolver(){
+    firstRandom = getRandom(gst)
+    secondRandom = getRandom(gst)
+    if(gst.length > 0){
+        testout(firstRandom, secondRandom)
+    }
+}
+function testout(firstRandom, secondRandom){
+    if(firstRandom == secondRandom){
+        gameSolver()
+    } else {
+        gSolver(firstRandom, secondRandom)
+    }
+}
+function getRandom(gst){
+    return gst[Math.floor(Math.random() * gst.length)]
+}
+function gSolver(firstRandom, secondRandom){
+    var v = eID(firstRandom).src
+    var w = eID(secondRandom).src
+    if(v === w){
+        gst.splice(gst.indexOf(firstRandom), 1)
+        gst.splice(gst.indexOf(secondRandom), 1)
+    }
+    if(gst.length > 0){
+        setTimeout(gameSolver, 1500)
+    }    
+    onKlick(firstRandom)
+    onKlick(secondRandom)
+}
+function onKlick(input){
+    document.getElementById("card" + input).click()
 }
