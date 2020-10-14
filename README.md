@@ -14,6 +14,7 @@ Classical memory game written in HTML, JS, CSS
 
 * Random game solver function 
 > function gameSolver()
+`<addr>` element here instead.
 
 # Good luck !
 
