@@ -12,7 +12,8 @@ Classical memory game written in HTML, JS, CSS
 * Timer
 * Moves counter
 
-* Random game solver function > function gameSolver()
+* Random game solver function 
+> function gameSolver()
 
 # Good luck !
 
