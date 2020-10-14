@@ -13,7 +13,7 @@ Classical memory game written in HTML, JS, CSS
 * Moves counter
 
 * Random game solver function: 
-`function gameSolver()`
+`**function gameSolver()**`
 
 
 # Good luck !
