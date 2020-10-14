@@ -22,6 +22,10 @@ var player2Points = 0
 var moves = 0
 var rightMoves = 0
 
+// var gst // AUTO // SOLVE //
+var gst = [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13",              
+    "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27" ]   
+
 function randomizeArray(){
     for(i = images.length; i > 0; i -= 1){
         randomImg = images[Math.floor(Math.random() * images.length)]
@@ -41,7 +45,6 @@ function divide(item, index){
     randomizeArray(images, randomArray)
     randomArray.forEach(divideImages)
     myVar = setInterval(myTimer ,1000)
-    gameSolver()                            /////////// GAME SOLVER
 }
 
 var s = 0
@@ -71,17 +74,19 @@ function myFunction(myID){
         var x = eID(firstSel).src
         var y = eID(secondSel).src
         if(x == y){
+            console.log(firstSel + " " + secondSel + " " + gst.length)
+
             images.splice(images.indexOf(randomImg), 1)
             characters.splice(characters.indexOf(x))
             document.getElementById("card" + firstSel).style.height = "2vh"
             document.getElementById("card" + firstSel).style.backgroundColor = "yellow"
             document.getElementById("card" + firstSel).style.borderRadius = "50%"
-            document.getElementById("img" + firstSel).style.height = "13vh"
+            document.getElementById("img" + firstSel).style.height = "14vh"
 
             document.getElementById("card" + secondSel).style.height = "2vh"
             document.getElementById("card" + secondSel).style.backgroundColor = "yellow"
             document.getElementById("card" + secondSel).style.borderRadius = "50%"
-            document.getElementById("img" + secondSel).style.height = "13vh"
+            document.getElementById("img" + secondSel).style.height = "14vh"
 
             if(playerTurn == 1){
                 player1Points += 1
@@ -92,6 +97,8 @@ function myFunction(myID){
                 player2Points += 1
                 document.getElementById("AB").innerHTML = "A"
                 document.getElementById("p2points").innerHTML = player2Points
+                document.getElementById("card" + firstSel).style.backgroundColor = "blue"
+                document.getElementById("card" + secondSel).style.backgroundColor = "blue"
                 playerTurn = 1
             }
             rightMoves += 1
@@ -163,8 +170,7 @@ cID = eid => document.getElementById("card" + eid.toString())
 
 //////////////////////// GAME /// SOLVER ////////////////////
 
-var gst = [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13",              
-            "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27" ]   
+
 var test = []
 let firstRandom = ""
 let secondRandom = ""
@@ -186,6 +192,7 @@ function getRandom(gst){
     return gst[Math.floor(Math.random() * gst.length)]
 }
 function gSolver(firstRandom, secondRandom){
+    console.log(gst)
     var v = eID(firstRandom).src
     var w = eID(secondRandom).src
     if(v === w){

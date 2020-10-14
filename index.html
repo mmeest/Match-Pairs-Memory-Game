@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style/style.css">
     <script src="script/script.js"></script>
 </head>
-<body onload="divide()"><br><br>
+<body onload="divide()">
     <table id="mainTable" width="100vw">
         <tr>
             <td>
@@ -57,36 +57,41 @@
             <td width="20%" valign="bottom">
                 <table id="tbl2" valign="bottom">
                     <tr>
-                        <div id="AB" align="center" style="font-size: 14vh; color: rgb(12, 12, 78); font-weight: bold;">
+                        <div id="AB" align="center" style="font-size: 12vh; color: rgb(12, 12, 78); font-weight: bold;">
                             A
                         </div>
                     </tr>
-                    <tr>
+                    <tr height="1vh">
                         <p id="time" align="center">
                             Time: 0:00 min
                         </p>
                     </tr>
-                    <tr>
+                    <tr height="1vh">
                         <p id="moves" align="center">
                             Moves: 0
                         </p>                        
                     </tr>
-                    <tr heigth="10vh">
+                    <tr heigth="8vh">
                         <div id="p1r">
                             <h1>PlayerA:</h1>
                             <h2 id="p1points">0</h2>
                         </div>                        
                     </tr>
-                    <tr heigth="10vh" id="p2r">
+                    <tr heigth="8vh" id="p2r">
                         <h1>PlayerB:</h1>
                         <h2 id="p2points">0</h2>
                     </tr>
-                    <tr heigth="20vh" style="margin: auto;">
+                    <tr heigth="18vh" style="margin: auto;">
                         <p align="center">
                             <button id="newGame" onclick=window.location.reload()>NEW<br>GAME</button>                    
                         </p>
                     </tr>
-                    <tr id="al">
+                    <tr heigth="18vh" style="margin: auto;">
+                        <p align="center">
+                            <button id="newGame" onclick="gameSolver()">AUTO<br>SOLVE</button>                    
+                        </p>
+                    </tr>
+                    <tr id="al" height="0">
                         <img id="aliens" src="aliens.png" alt="">
                     </tr>
                 </table>                
