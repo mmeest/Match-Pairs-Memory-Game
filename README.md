@@ -12,6 +12,8 @@ Classical memory game written in HTML, JS, CSS
 * Timer
 * Moves counter
 
+* Random game solver function > function gameSolver()
+
 # Good luck !
 
 ![footer](https://capsule-render.vercel.app/api?type=slice&color=auto&height=130&section=footer)
