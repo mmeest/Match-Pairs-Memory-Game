@@ -22,6 +22,13 @@ var player2Points = 0
 var moves = 0
 var rightMoves = 0
 
+var chaSound = new Audio("sounds/Champion.mp3")
+var dohSound = new Audio("sounds/Doh.mp3")
+var kruSound = new Audio("sounds/Krusty.mp3")
+var simSound = new Audio("sounds/Simpsons.mp3")
+var cliSound = new Audio("sounds/Click.mp3")
+var clikClick = cliSound.play()
+
 // var gst // AUTO // SOLVE //
 var gst = [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13",              
     "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27" ]   
@@ -39,7 +46,7 @@ function randomizeArray(){
 function divideImages(item, index){
     document.getElementById("img" + index.toString()).src = item + ".png"
 }
- 
+
 // HTML body onload function
 function divide(item, index){
     randomizeArray(images, randomArray)
@@ -50,7 +57,7 @@ function divide(item, index){
 var s = 0
 var m = 0
 // function to display timer 
-function myTimer(){
+function myTimer(){    
     s += 1
     if (s > 59){
         m += 1
@@ -64,11 +71,18 @@ function myTimer(){
 }
 
 function myFunction(myID){
+    // to play background music
+    /* if(moves == 0){
+        simSound.play().loop
+    } */
+
     if(selNo == 0 && gameOn == 1){
+        cliSound.play()
         eID(myID).style.opacity = "1"
         firstSel = myID
         selNo = 1
     } else if(selNo == 1 && gameOn == 1 && firstSel != myID) {
+        cliSound.play()
         eID(myID).style.opacity = "1"
         secondSel = myID.toString()    
         var x = eID(firstSel).src
@@ -138,9 +152,11 @@ function myFunction(myID){
             if(playerTurn == 1){
                 playerTurn = 2
                 document.getElementById("AB").innerHTML = "B"
+                document.getElementById("AB").style.color = "blue"
             } else {
                 playerTurn = 1
                 document.getElementById("AB").innerHTML = "A"
+                document.getElementById("AB").style.color = "yellow"
             }
             moves += 1
             document.getElementById("moves").innerHTML = "Moves: " + moves
@@ -207,4 +223,20 @@ function gSolver(firstRandom, secondRandom){
 }
 function onKlick(input){
     document.getElementById("card" + input).click()
+}
+
+mute = 0
+function muteFunction(){
+    console.log("hello")
+    if(mute == 0){
+        cliSound = ""
+        document.getElementById("mute").style.borderColor = "green"
+        document.getElementById("mute").innerHTML = "&#128266"
+        mute = 1
+    } else {
+        cliSound = new Audio("sounds/Click.mp3")
+        document.getElementById("mute").style.borderColor = "red"
+        document.getElementById("mute").innerHTML = "&#x1f507;"
+        mute = 1
+    }
 }
