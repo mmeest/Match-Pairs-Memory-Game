@@ -1,9 +1,11 @@
-![header](https://capsule-render.vercel.app/api?type=slice&color=auto&height=130&section=header&text=Memory%20game&fontSize=30&fontAlign=80)
+<p align="center"><img src="https://user-images.githubusercontent.com/34022590/110904517-c358ee00-8311-11eb-8137-4317f279731c.png" width="350px"></p>
 
-<img src="Screenshot.png" width="500px">
-
-# Match-Pairs-Memory-Game
-Classical memory game written in HTML, JS, CSS
+<h1 align="center">
+    <strong>Match Pairs Memory Game</strong>
+</h1>
+<h3 align="center">
+    Classical memory game written in HTML, JS, CSS
+</h3>
 
 ![](Screen.gif) 
 
@@ -18,4 +20,4 @@ Classical memory game written in HTML, JS, CSS
 
 # Good luck !
 
-![footer](https://capsule-render.vercel.app/api?type=slice&color=auto&height=130&section=footer)
+
