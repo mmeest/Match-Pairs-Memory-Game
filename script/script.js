@@ -279,3 +279,7 @@ document.addEventListener("dragstart", function (event) {
   event.preventDefault();
 });
 
+document.querySelectorAll(".card img").forEach(img => {
+  img.ondragstart = () => false;
+});
+
