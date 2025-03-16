@@ -274,3 +274,8 @@ function randomizeMovement() {
 window.onload = function() {
   randomizeMovement();
 };
+
+document.addEventListener("dragstart", function (event) {
+  event.preventDefault();
+});
+
