@@ -9,6 +9,10 @@
 
 ![](Screen.gif) 
 
+
+# Link to play the game: https://rawcdn.githack.com/mmeest/Match-Pairs-Memory-Game/c6feece6083a58681783fce6f488048349fa621b/index.html
+
+
 ## Features
 * 28 field two player memory game
 * Timer
