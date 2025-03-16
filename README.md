@@ -1,7 +1,7 @@
 <p align="center"><img src="https://user-images.githubusercontent.com/34022590/110904517-c358ee00-8311-11eb-8137-4317f279731c.png" width="350px"></p>
 
-
-### Link to play the game: https://rawcdn.githack.com/mmeest/Match-Pairs-Memory-Game/c6feece6083a58681783fce6f488048349fa621b/index.html
+### Play it on Github Pages: https://mmeest.github.io/Match-Pairs-Memory-Game/
+### or on the following link: https://rawcdn.githack.com/mmeest/Match-Pairs-Memory-Game/c6feece6083a58681783fce6f488048349fa621b/index.html
 
 <h1 align="center">
     <strong>Match Pairs Memory Game</strong>
