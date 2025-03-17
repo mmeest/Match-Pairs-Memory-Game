@@ -283,3 +283,45 @@ document.querySelectorAll(".card img").forEach(img => {
   img.ondragstart = () => false;
 });
 
+/////////////////////////////
+
+// Funktsioon juhusliku trajektoori genereerimiseks
+function generateRandomPosition() {
+  // Juhuslikud väärtused vasakule ja ülespoole liikumiseks
+  const randomLeft = Math.floor(Math.random() * window.innerWidth);  // Juhuslik "left" väärtus
+  const randomTop = Math.floor(Math.random() * window.innerHeight);  // Juhuslik "top" väärtus
+  return { left: randomLeft, top: randomTop };
+}
+
+// Funktsioon, mis seob juhusliku trajektoori animaatavale elemendile
+function setRandomPosition() {
+  const aliens = document.getElementById('aliens');
+  const randomPos = generateRandomPosition();
+
+  // Muudame animatsiooni keyframesi väärtusi
+  const keyframes = `
+    @keyframes example {
+      0% { left: ${randomPos.left}px; top: ${randomPos.top}px; }
+      25% { left: ${randomPos.left + 200}px; top: ${randomPos.top + 100}px; }
+      50% { left: ${randomPos.left + 400}px; top: ${randomPos.top + 200}px; }
+      75% { left: ${randomPos.left - 300}px; top: ${randomPos.top + 300}px; }
+      100% { left: ${randomPos.left}px; top: ${randomPos.top}px; }
+    }
+  `;
+
+  // Lisame dünaamiliselt loodud keyframes CSS stiili
+  const styleSheet = document.styleSheets[0];
+  styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
+
+  // Lisame või muudame animatsiooni elemendil
+  aliens.style.animation = 'example 12s infinite cubic-bezier(0.25, 0.8, 0.25, 1)';
+}
+
+// Käivitage funktsioon, et määrata random trajektoor
+setRandomPosition();
+
+// Uue trajektoori määramiseks iga 12 sekundi järel
+setInterval(setRandomPosition, 12000);
+
+
+
