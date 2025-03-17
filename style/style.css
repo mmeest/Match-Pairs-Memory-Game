@@ -10,6 +10,7 @@ body {
   animation: move 80s linear infinite;
 }
 
+/*
 @keyframes move {
   from {
     background-position: 0 0;
@@ -18,6 +19,8 @@ body {
     background-position: -100vw 0;
   }
 }
+*/
+
 
 /* Peamine tabeli paigutus */
 #mainTable {
